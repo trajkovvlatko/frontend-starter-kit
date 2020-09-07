@@ -1,0 +1,7 @@
+.sidebar-panel {
+  a {
+    &.active {
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@import '../../styles/variables.scss';
+
+.main-layout {
+  font-color: $primary-color;
+  background-color: $secondary-color;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-areas:
+    "header"
+    "content"
+    "sidebar"
+    "footer";
+
+  grid-template-columns: auto 10fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar content"
+    "sidebar footer";
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr 9fr;
+  }
+}
+
+.header, .content, .sidebar, .footer {
+  border: 1px solid $inactive-color;
+}
+
+.header {
+  grid-area: header;
+}
+
+.content {
+  grid-area: content;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  width: 40px;
+  transition: width 0.3s;
+  overflow: hidden;
+  background-color: $secondary-color;
+
+  &.active {
+    width: 200px;
+
+    @media (max-width: 500px) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
+  }
+}
+
+.footer {
+  grid-area: footer;
+}
